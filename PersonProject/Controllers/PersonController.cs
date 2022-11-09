@@ -32,10 +32,8 @@ namespace PersonProject.Controllers
         [HttpPost("person")]
         public ActionResult InsertPerson(PersonModel pesrson)
         {
-            int count = 0;
             var allPersons = _personService.GetPerson();
-            if (!allPersons.Any()) count = 1;
-            count = allPersons.Count() + 1;
+            var count = allPersons.Count();
             var newPerson = new PersonModel { Age = pesrson.Age, DateOfBirth = pesrson.DateOfBirth, Name = pesrson.Name, Id = count};
             var persons = _personService.InsertPerson(newPerson);
             return Ok(newPerson);
