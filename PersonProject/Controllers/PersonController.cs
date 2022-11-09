@@ -33,7 +33,7 @@ namespace PersonProject.Controllers
         public ActionResult InsertPerson(PersonModel pesrson)
         {
             var allPersons = _personService.GetPerson();
-            var count = allPersons.Count();
+            var count = allPersons.Count() + 1;
             var newPerson = new PersonModel { Age = pesrson.Age, DateOfBirth = pesrson.DateOfBirth, Name = pesrson.Name, Id = count};
             var persons = _personService.InsertPerson(newPerson);
             return Ok(newPerson);
