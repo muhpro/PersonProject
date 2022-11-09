@@ -8,7 +8,6 @@ namespace PersonProject.Services
 
         public PersonModel InsertPerson(PersonModel person)
         {
-            person.Id = persons.Count + 1;
             persons.Add(person);
             return person;
         }
